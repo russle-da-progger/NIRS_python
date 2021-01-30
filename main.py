@@ -16,10 +16,10 @@ class MyWindow(QtWidgets.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.i = 0
-        self.ui.radioButton_ground_launch.clicked.connect(self.choose_f1)
-        self.ui.radioButton_ARM.clicked.connect(self.choose_f2)
-        self.ui.radioButton_ARMtoRM.clicked.connect(self.choose_f3)
-        self.ui.radioButton_RMtoARM.clicked.connect(self.choose_f4)
+        self.ui.radioButton_ground_launch.clicked.connect(self.choose_ground_launch)
+        self.ui.radioButton_ARM.clicked.connect(self.choose_ARM)
+        self.ui.radioButton_ARMtoRM.clicked.connect(self.choose_ARMtoRM)
+        self.ui.radioButton_RMtoARM.clicked.connect(self.choose_RMtoARM)
 
         self.ui.pushButton_forward.clicked.connect(self.show_next)
         self.ui.pushButton_backward.clicked.connect(self.show_prev)
@@ -28,7 +28,7 @@ class MyWindow(QtWidgets.QMainWindow):
     def show_full(self):
         self.ui.label_image_overlay.setPixmap(QtGui.QPixmap("images/full/full description.png"))
 
-    def choose_f1(self):
+    def choose_ground_launch(self):
         self.i = 0
         self.ui.label_image_overlay.setPixmap(QtGui.QPixmap(paths.ground_launch[0]))
         self.ui.textBrowser_description.setText(texts.ground_launch[0])
@@ -38,27 +38,27 @@ class MyWindow(QtWidgets.QMainWindow):
 
         self.ui.label_text_counter.setText(str(self.i + 1) + "/" + str(len(self.buffer_images)))
 
-    def choose_f2(self):
+    def choose_choose_ARM(self):
         self.i = 0
-        self.ui.label_image_overlay.setPixmap(QtGui.QPixmap(paths.b[0]))
+        self.ui.label_image_overlay.setPixmap(QtGui.QPixmap(paths.ARM[0]))
 
-        self.buffer_images = paths.b
+        self.buffer_images = paths.ARM
 
         self.ui.label_text_counter.setText(str(self.i + 1) + "/" + str(len(self.buffer_images)))
 
-    def choose_f3(self):
+    def choose_ARMtoRM(self):
         self.i = 0
-        self.ui.label_image_overlay.setPixmap(QtGui.QPixmap(paths.c[0]))
+        self.ui.label_image_overlay.setPixmap(QtGui.QPixmap(paths.ARM_to_RM[0]))
 
-        self.buffer_images = paths.c
+        self.buffer_images = paths.ARM_to_RM
 
         self.ui.label_text_counter.setText(str(self.i + 1) + "/" + str(len(self.buffer_images)))
 
-    def choose_f4(self):
+    def choose_RMtoARM(self):
         self.i = 0
-        self.ui.label_image_overlay.setPixmap(QtGui.QPixmap(paths.d[0]))
+        self.ui.label_image_overlay.setPixmap(QtGui.QPixmap(paths.RM_to_ARM[0]))
 
-        self.buffer_images = paths.d
+        self.buffer_images = paths.RM_to_ARM
 
         self.ui.label_text_counter.setText(str(self.i + 1) + "/" + str(len(self.buffer_images)))
 
